@@ -228,11 +228,6 @@ const Navbar = ({ setOpenAuth, openAuth, currentUser }) => {
           </Navlink>
           {currentUser ? (
             <>
-              <Avatar src={currentUser?.img}>{currentUser?.name[0]}</Avatar>
-              <TextButton onClick={() => dispatch(logout())}>Logout</TextButton>
-            </>
-          ) : (
-            <>
               <Navlink to="/favorite">
                 <FavoriteBorder sx={{ color: "inherit", fontSize: "28px" }} />
               </Navlink>
@@ -241,6 +236,11 @@ const Navbar = ({ setOpenAuth, openAuth, currentUser }) => {
                   sx={{ color: "inherit", fontSize: "28px" }}
                 />
               </Navlink>
+              <Avatar src={currentUser?.img}>{currentUser?.name[0]}</Avatar>
+              <TextButton onClick={() => dispatch(logout())}>Logout</TextButton>
+            </>
+          ) : (
+            <>
               <Button text="Sign In" small onClick={() => setOpenAuth(true)} />
             </>
           )}
